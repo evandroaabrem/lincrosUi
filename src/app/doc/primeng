@@ -1,0 +1,12 @@
+http://primefaces.org/primeng/#/setup
+
+npm install primeng --save
+-----adicionando fonts
+npm install fontawesome --save
+
+** irá adicionar no arquivo package.json
+
+---abrir o arquivo angular.json e procurar a tag "styles" e adicionar
+ "node_modules/primeicons/primeicons.css",
+  "node_modules/primeng/resources/themes/nova-light/theme.css",
+  "node_modules/primeng/resources/primeng.min.css",

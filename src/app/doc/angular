@@ -1,0 +1,40 @@
+https://www.devmedia.com.br/angular-cli-como-criar-artefatos-do-angular/38250
+
+-- criando telas
+ng generate component favorito
+
+ng g c lancamentos-pesquisa
+ng g c navbar --spec=false
+
+ng g c pessoas-pesquisa
+
+ng g c lancamento-cadastro --spec=false
+
+ng g c lancamentos-grid --spec=false
+
+
+ng g c pessoas-cadastro  --spec=false
+
+ng g c message --spec=false --inline-template --inline -style
+
+instalar mascara na pagina com a diretiva currency-mask
+npm install ng2-currency-mask --save
+
+
+criando modulo
+ng g m botoes
+ng g m lancamentos
+
+criando sharedModel
+ng g m shared
+
+
+Cannot find module '@angular/http'. [2307]
+npm i @angular/http
+
+criando serviço
+ng g s lancamentos/lancamento --spec=false
+
+
+converter data moment
+npm install moment --save

@@ -1,0 +1,14 @@
+---verifica a sintaxe do codigo, padrao de sintaxe
+TSLINT
+
+
+----editorconfig.org
+- Elimina os espaços vazios
+.editorconfig
+editorconfig
+
+--nao precisa colocar a string '<', isso fica automatico
+html snippets
+
+-- auto import automaticamente
+Auto Import
