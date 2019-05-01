@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, URLSearchParams  } from '@angular/http';
 import * as moment from 'moment';
+import { CidadesPesquisaComponent } from './cidade-pesquisa/cidades-pesquisa.component';
 
 export class LancamentoFiltro {
   descricao: string;
@@ -15,47 +16,18 @@ export class LancamentoFiltro {
 })
 export class CidadeService {
 
-  lancamentosUrl = 'http://localhost:8080/lancamentos';
-
+  cidadesUrl = 'http://localhost:8080/api/cadastro';
   constructor(private http: Http) { }
 
-  pesquisar(filtro: LancamentoFiltro): Promise<any> {
-    const params = new URLSearchParams();
-    const headers = new Headers();
+  getCidades() {
+          return this.http.get(`${this.cidadesUrl}`,
+          )
+        .toPromise()
+        .then(response => {
+          const responseJson = response.json();
+         return responseJson;
 
-    headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+        });
 
-    params.set('page', filtro.pagina.toString());
-    params.set('size', filtro.itensPorPagina.toString());
-
-    if (filtro.descricao) {
-      params.set('descricao', filtro.descricao);
-    }
-
-    if (filtro.dataVencimentoInicio) {
-      params.set('dataVencimentoDe',
-        moment(filtro.dataVencimentoInicio).format('YYYY-MM-DD'));
-    }
-
-    if (filtro.dataVencimentoFim) {
-      params.set('dataVencimentoAte',
-        moment(filtro.dataVencimentoFim).format('YYYY-MM-DD'));
-    }
-
-    return this.http.get(`${this.lancamentosUrl}?resumo`,
-        { headers, search: params })
-      .toPromise()
-      .then(response => {
-        const responseJson = response.json();
-        const lancamentos = responseJson.content;
-
-        const resultado = {
-          lancamentos,
-          total: responseJson.totalElements
-        };
-
-        return resultado;
-      });
   }
-
 }
