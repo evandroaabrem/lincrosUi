@@ -1,7 +1,6 @@
+import { Cidade } from 'src/app/model/cidade.model';
 import { Injectable } from '@angular/core';
 import { Http, Headers, URLSearchParams  } from '@angular/http';
-import * as moment from 'moment';
-import { CidadesPesquisaComponent } from './cidade-pesquisa/cidades-pesquisa.component';
 
 export class LancamentoFiltro {
   descricao: string;
@@ -30,4 +29,21 @@ export class CidadeService {
         });
 
   }
+
+salvar(cidade: Cidade) {
+        this.http.post(`${this.cidadesUrl}`, cidade
+        ).toPromise().then(response => {
+            const responseJson = response.json();
+          return responseJson;
+      });
+}
+
+
+delete(id: any) {
+  this.http.delete(`${this.cidadesUrl}/` + id,
+  ).toPromise().then(response => {
+});
+
+}
+
 }

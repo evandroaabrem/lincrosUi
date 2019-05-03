@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CidadesPesquisaComponent } from './cidade-pesquisa/cidades-pesquisa.component';
 import { CidadesCadastroComponent } from './cidade-cadastro/cidades-cadastro.component';
 import { InputTextModule } from 'primeng/components/inputtext/inputtext';
 import { ButtonModule } from 'primeng/components/button/button';
@@ -16,8 +15,7 @@ import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
-    CidadesCadastroComponent,
-    CidadesPesquisaComponent
+    CidadesCadastroComponent
   ],
   imports: [
     CommonModule,
@@ -37,8 +35,7 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   exports: [
-    CidadesCadastroComponent,
-    CidadesPesquisaComponent
+    CidadesCadastroComponent
   ]
 })
 export class CidadeModule { }

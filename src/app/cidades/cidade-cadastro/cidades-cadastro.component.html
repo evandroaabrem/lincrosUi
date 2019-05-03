@@ -9,23 +9,43 @@
       <div class="ui-g-12 ui-md-9 ui-fluid">
         <label>Cidade</label>
         <input pInputText type="text" name="cidade"
-          ngModel #cidade="ngModel" required minlength="15">
+        [(ngModel)]="cidade.cidade">
       </div>
 
 
       <div class="ui-g-12 ui-md-9 ui-fluid">
-        <label>Descrição</label>
-        <input pInputText type="text" name="uf"
-          ngModel #uf="ngModel" required minlength="15">
+        <label>Uf</label>
+        <input pInputText type="text" name="uf" maxlength="2"
+        [(ngModel)]="cidade.uf">
       </div>
 
 
 
       <div class="ui-g-12">
-        <button pButton type="submit" label="Salvar" [disabled]="f.invalid"></button>
-        <button pButton type="button" label="Novo" class="ui-button-info"></button>
-        <a href="javascript:;">Voltar para a pesquisa</a>
+        <button pButton type="submit" label="Salvar" (click)="salvar()"></button>
       </div>
+    </div>
+
+    <div class="ui-g">
+      <div class="ui-g-12">
+            <p-dataTable [value]="cidades" [paginator]="true" [rows]="5"
+            [responsive]="true" emptyMessage="Nenhum lançamento encontrado"
+            [paginator]="true" >
+
+              <p-column field="cidade" header="cidade" [filter]="true"></p-column>
+              <p-column field="uf" header="Uf" [filter]="true"></p-column>
+              <p-column header="Ação" field="" [filter]="true">
+                  <ng-template let-rowValue="rowData" pTemplate="body">
+                      <img height="16px" matTooltip='Excluir' style="filter: grayscale(1) brightness(2);"
+                      (click)="exluirItemListaGrid(rowValue)"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAQAAABIkb+zAAAAx0lEQVR4Ae3TsRGCQBCG0ctMrEETMyP3WrMAU0vQImhBS5BOGHLAFhxhGYL3XQP/m7ktkiRJWqK41em3F7ftz88n5M/PJ+TP3xKhTus+AACAeQEA5CRpq8cLAAAAAAAAAAAAAAAAAJAQAAAAAAAAAAAAAAAAAAAAAAAAAABAnwroS3bxyQREmw+4pwLuJbvLMYa0+UM9lPzikQZ4ljU67XLuINrTrqzTeR9NjIuOH6M578ua1UO9xrt2s8d39VWv//x9SZIkfQGe9vk9KlYAywAAAABJRU5ErkJggg=="/>
+                </ng-template>
+              </p-column>
+
+
+            </p-dataTable>
+      </div>
+
     </div>
 
   </form>

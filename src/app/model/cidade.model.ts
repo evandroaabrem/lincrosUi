@@ -1,8 +1,8 @@
 
 export class Cidade {
   id: number;
-  cidade : string;
-  uf : string;
+  cidade: string;
+  uf: string;
 
   constructor(cidade?: Cidade | number) {
     if (cidade !== undefined && cidade !== null) {
